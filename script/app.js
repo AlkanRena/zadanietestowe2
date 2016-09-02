@@ -2,8 +2,10 @@
 
  app.controller('formController', function formController($scope){
 
-
-
+     $scope.showEdit = true;
+     $scope.showNew = true;
+     
+     
      $scope.userData = [
          {
              id: '1',
@@ -25,7 +27,7 @@
      var idCounter = $scope.userData.length;
 
      $scope.addData = function () {
-         idCounter ++;
+
          $scope.userData.push({id: idCounter, name: $scope.userDataName, email: $scope.userDataEmail});
 
          console.log($scope.userData.length, $scope.userData);
@@ -39,7 +41,10 @@
      };
 
      $scope.editData = function () {
-         
+
+         // $scope.userData.push({id: $scope.user.id, name: $scope.newUserName, email: $scope.newUserEmail});
+
+         console.log($scope.user);
      };
 
  });

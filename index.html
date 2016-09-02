@@ -20,11 +20,27 @@
             <div class="table" ng-repeat="user in userData">
                 <div class="singleRowName">{{user.name}}</div>
                 <div class="singleRowEmail">{{user.email}}</div>
-                <div class="singleRowButton"><button ng-click="editData()">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
+                <div class="singleRowButton"><button ng-click="showEdit = !showEdit">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
+                <div ng-hide="showEdit">
+                    <span>
+                        Create new
+                    </span>
+                    <form>
+                        <lable>
+                            Name
+                            <input type="text" name="name" placeholder="{{user.name}}" ng-model="newUserName">
+                        </lable>
+                        <lable>
+                            Email
+                            <input type="email" name="email" placeholder="{{user.email}}" ng-model="newUserEmail">
+                        </lable>
+                        <button ng-click="editData()">Save</button><button>Cancel</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <button>Create new</button>
-        <div>
+        <button ng-click="showNew = !showNew">Create new</button>
+        <div ng-hide="showNew">
             <span>
                 Create new
             </span>
