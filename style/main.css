@@ -1,0 +1,77 @@
+main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+
+    font-family: "Courier New", "Lucida Console";
+}
+
+button {
+    font-family: "Courier New", "Lucida Console";
+}
+
+main > div {
+    padding-top: 10vh;
+    margin: 0 auto;
+}
+
+#table {
+    display: flex;
+    flex-flow: column;
+    border: 3px solid black;
+}
+
+#topTable {
+    display: flex;
+    flex-flow: row;
+
+    background-color: darkgrey;
+}
+
+.table {
+    display: flex;
+    flex-flow: row;
+}
+
+.topTableRowName {
+    width: 15vw;
+    padding: 1vh 1vw;
+}
+
+.topTableRowEmail {
+    width: 15vw;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    padding: 1vh 1vw;
+}
+
+.topTableRowButton {
+    width: 15vw;
+    padding: 1vh 1vw;
+}
+
+.singleRowName {
+    width: 15vw;
+    padding: 1vh 1vw;
+}
+
+.singleRowEmail {
+    width: 15vw;
+    padding: 1vh 1vw;
+
+    border-right: 3px solid black;
+    border-left: 3px solid black;
+}
+
+.singleRowButton {
+    width: 15vw;
+    padding: 1vh 1vw;
+}
+
+.table:nth-child(even) {
+    background-color: lightgray;
+}
+
+.table:nth-child(odd) {
+    background-color: white;
+}

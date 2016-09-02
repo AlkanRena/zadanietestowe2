@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="form">
 <head>
     <meta charset="UTF-8">
     <title>Zadanie Testowe</title>
 
+    <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
 
+<main>
+    <div ng-controller="formController">
+        <div id="table">
+            <div id="topTable">
+                <div class="topTableRowName">Name</div>
+                <div class="topTableRowEmail">Email</div>
+                <div class="topTableRowButton">Actions</div>
+            </div>
+            <div class="table" ng-repeat="user in userData">
+                <div class="singleRowName">{{user.name}}</div>
+                <div class="singleRowEmail">{{user.email}}</div>
+                <div class="singleRowButton"><button ng-click="editData()">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
+            </div>
+        </div>
+        <button>Create new</button>
+        <div>
+            <span>
+                Create new
+            </span>
+            <form>
+                <lable>
+                    Name
+                    <input type="text" name="name" ng-model="userDataName">
+                </lable>
+                <lable>
+                    Email
+                    <input type="email" name="email" ng-model="userDataEmail">
+                </lable>
+                <button ng-click="addData()">Save</button><button>Cancel</button>
+            </form>
+
+        </div>
+    </div>
+</main>
 
 <script type="text/javascript" src="script/angular.min.js"></script>
 <script type="text/javascript" src="script/app.js"></script>
