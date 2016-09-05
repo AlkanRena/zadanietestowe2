@@ -25,7 +25,7 @@
                     <span>
                         Edit user
                     </span>
-                    <form ng-repeat="userEdition in userEdit | filter: {id: user.id}">
+                    <form ng-repeat="userEdition in userEdit | filter: {id: user.id, name: user.name}">
                         <lable>
                             Name
                             <input type="text" name="name" ng-model="userEdition.name">
@@ -53,7 +53,7 @@
                     Email
                     <input type="email" name="email" ng-model="userDataEmail">
                 </lable>
-                <button ng-click="addData()">Save</button><button>Cancel</button>
+                <button ng-click="addData()">Save</button><button ng-click="showNew = !showNew">Cancel</button>
             </form>
         </div>
     </div>

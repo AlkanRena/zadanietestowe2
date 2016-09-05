@@ -28,16 +28,26 @@
          }
      ];
 
+     var idCounter = $scope.userData.length + 1;
+
      $scope.userEdit = angular.copy($scope.userData);
 
      $scope.addData = function () {
-         var idCounter = $scope.userData.length + 1;
-         
+
+         console.log(idCounter);
+             idCounter = idCounter + 1;
+
+
+         console.log(idCounter);
+
          $scope.userData.push({
-             id: '' + idCounter, 
-             name: $scope.userDataName, 
-             email: $scope.userDataEmail});
-         
+             id: '' + idCounter,
+             name: $scope.userDataName,
+             email: $scope.userDataEmail,
+             showEditBox: false});
+
+         console.log($scope.userData);
+
          $scope.userEdit = angular.copy($scope.userData);
      };
      
