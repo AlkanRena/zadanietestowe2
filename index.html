@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="form">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie Testowe</title>
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+
+<main>
+    <div ng-controller="formController">
+        <div id="table">
+            <div id="topTable">
+                <div class="topTableRowName">Name</div>
+                <div class="topTableRowEmail">Email</div>
+                <div class="topTableRowButton">Actions</div>
+            </div>
+            <div class="table" ng-repeat="user in userData">
+                <div class="singleRowName">{{user.name}}</div>
+                <div class="singleRowEmail">{{user.email}}</div>
+                <div class="singleRowButton"><button ng-click="user.showEditBox = true">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
+                <div data-ng-show="user.showEditBox">
+                    <span>
+                        Edit user
+                    </span>
+                    <form ng-repeat="userEdition in userEdit | filter: {id: user.id, name: user.name}">
+                        <lable>
+                            Name
+                            <input type="text" name="name" ng-model="userEdition.name">
+                        </lable>
+                        <lable>
+                            Email
+                            <input type="email" name="email" ng-model="userEdition.email">
+                        </lable>
+                        <button ng-click="editData()">Save</button><button ng-click="user.showEditBox = false; cancel()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <button ng-click="showNew = !showNew">Create new</button>
+        <div ng-hide="showNew">
+            <span>
+                Create new
+            </span>
+            <form>
+                <lable>
+                    Name
+                    <input type="text" name="name" ng-model="userDataName">
+                </lable>
+                <lable>
+                    Email
+                    <input type="email" name="email" ng-model="userDataEmail">
+                </lable>
+                <button ng-click="addData()">Save</button><button ng-click="showNew = !showNew">Cancel</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript" src="script/angular.min.js"></script>
+<script type="text/javascript" src="script/app.js"></script>
+</body>
+</html>
