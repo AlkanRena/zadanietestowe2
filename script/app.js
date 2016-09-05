@@ -1,8 +1,9 @@
  var app = angular.module('form', []);
 
  app.controller('formController', function formController($scope){
-
-     $scope.showEdit = true;
+     
+     
+     $scope.showEdit = { showEditBox: false};
      $scope.showNew = true;
      
      
@@ -24,28 +25,35 @@
          }
      ];
 
-     var idCounter = $scope.userData.length;
+     $scope.userEdit = angular.copy($scope.userData);
 
      $scope.addData = function () {
-
-         $scope.userData.push({id: idCounter, name: $scope.userDataName, email: $scope.userDataEmail});
-
-         console.log($scope.userData.length, $scope.userData);
+         var idCounter = $scope.userData.length + 1;
+         
+         $scope.userData.push({
+             id: '' + idCounter, 
+             name: $scope.userDataName, 
+             email: $scope.userDataEmail});
+         
+         $scope.userEdit = angular.copy($scope.userData);
      };
      
      $scope.deleteData = function(user) {
-
-         console.log($scope.userData.indexOf(user));
-
          $scope.userData.splice($scope.userData.indexOf(user), 1);
+         $scope.userEdit = angular.copy($scope.userData);
      };
 
      $scope.editData = function () {
+        angular.copy($scope.userEdit, $scope.userData);
 
-         // $scope.userData.push({id: $scope.user.id, name: $scope.newUserName, email: $scope.newUserEmail});
-
-         console.log($scope.user);
+         $scope.userEdit = angular.copy($scope.userData);
      };
+
+     $scope.cancel = function () {
+         $scope.userEdit = angular.copy($scope.userData);
+
+         $scope.showEdit = {showEditBox: false};
+     }
 
  });
 
