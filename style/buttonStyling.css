@@ -1,0 +1,38 @@
+
+
+
+
+/* Settings for options in table */
+
+.singleRowButton {
+    width: 15vw;
+    padding: 1vh 1vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-image: url('../images/settings.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 7%;
+}
+
+.buttonmenu {
+    display: none;
+    position: absolute;
+    top: 1vh;
+    left: 5vw;
+    z-index: 1;
+}
+
+.singleRowButton:hover > .buttonmenu {
+    display: flex;
+    flex-flow: column;
+    width: 5vw;
+    text-align: center;
+}
+
+/* Setting for creating new user */
+
+.CreateNewButton {
+    margin: 2vh 0;
+}

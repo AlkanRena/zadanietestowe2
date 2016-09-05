@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/buttonStyling.css">
+    <link rel="stylesheet" href="style/newWindowsStyle.css">
 </head>
 <body>
 
@@ -20,41 +22,56 @@
             <div class="table" ng-repeat="user in userData">
                 <div class="singleRowName">{{user.name}}</div>
                 <div class="singleRowEmail">{{user.email}}</div>
-                <div class="singleRowButton"><button ng-click="user.showEditBox = true">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
-                <div data-ng-show="user.showEditBox">
-                    <span>
+                <div class="singleRowButton">
+                    <div class="buttonmenu">
+                    <button ng-click="user.showEditBox = true">Edit</button>
+                    <button ng-click="deleteData(user)">Remove</button>
+                    </div>
+                </div>
+                <div class="Form" data-ng-show="user.showEditBox">
+                    <div class="FormInside">
+                    <span class="FormInsideHeader">
                         Edit user
                     </span>
-                    <form ng-repeat="userEdition in userEdit | filter: {id: user.id, name: user.name}">
-                        <lable>
+                    <form class="FormInsideForm" ng-repeat="userEdition in userEdit | filter: {id: user.id, name: user.name}">
+                        <lable class="FormInsideLable">
                             Name
                             <input type="text" name="name" ng-model="userEdition.name">
                         </lable>
-                        <lable>
+                        <lable class="FormInsideLable">
                             Email
                             <input type="email" name="email" ng-model="userEdition.email">
                         </lable>
-                        <button ng-click="editData()">Save</button><button ng-click="user.showEditBox = false; cancel()">Cancel</button>
+                        <div class="FormInsideButton">
+                            <button class="FormInsideButtonSingle" ng-click="editData()">Save</button>
+                            <button class="FormInsideButtonSingle" ng-click="user.showEditBox = false; cancel()">Cancel</button>
+                        </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <button ng-click="showNew = !showNew">Create new</button>
-        <div ng-hide="showNew">
-            <span>
+        <button class="CreateNewButton" ng-click="showNew = !showNew">Create new</button>
+        <div class="Form" ng-hide="showNew">
+            <div class="FormInside">
+            <span class="FormInsideHeader">
                 Create new
             </span>
-            <form>
-                <lable>
+            <form class="FormInsideForm">
+                <lable class="FormInsideLable">
                     Name
                     <input type="text" name="name" ng-model="userDataName">
                 </lable>
-                <lable>
+                <lable class="FormInsideLable">
                     Email
                     <input type="email" name="email" ng-model="userDataEmail">
                 </lable>
-                <button ng-click="addData()">Save</button><button ng-click="showNew = !showNew">Cancel</button>
+                <div class="FormInsideButton">
+                    <button class="FormInsideButtonSingle" ng-click="addData()">Save</button>
+                    <button class="FormInsideButtonSingle" ng-click="showNew = !showNew">Cancel</button>
+                </div>
             </form>
+            </div>
         </div>
     </div>
 </main>
