@@ -20,8 +20,8 @@
             <div class="table" ng-repeat="user in userData">
                 <div class="singleRowName">{{user.name}}</div>
                 <div class="singleRowEmail">{{user.email}}</div>
-                <div class="singleRowButton"><button ng-click="showEdit.showEditBox = !showEdit.showEditBox">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
-                <div data-ng-show="showEdit.showEditBox">
+                <div class="singleRowButton"><button ng-click="user.showEditBox = true">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
+                <div data-ng-show="user.showEditBox">
                     <span>
                         Edit user
                     </span>
@@ -34,7 +34,7 @@
                             Email
                             <input type="email" name="email" ng-model="userEdition.email">
                         </lable>
-                        <button ng-click="editData()">Save</button><button ng-click="cancel()">Cancel</button>
+                        <button ng-click="editData()">Save</button><button ng-click="user.showEditBox = false; cancel()">Cancel</button>
                     </form>
                 </div>
             </div>

@@ -11,17 +11,20 @@
          {
              id: '1',
              name: 'Neddard Stark',
-             email: 'ned@stark.got'
+             email: 'ned@stark.got',
+             showEditBox: false
          },
          {
              id: '2',
              name: 'Arya Stark',
-             email: 'arya@stark.com'
+             email: 'arya@stark.com',
+             showEditBox: false
          },
          {
              id: '3',
              name: 'Stannis Lannister',
-             email: 'stannis@lannister.got'
+             email: 'stannis@lannister.got',
+             showEditBox: false
          }
      ];
 
@@ -51,8 +54,6 @@
 
      $scope.cancel = function () {
          $scope.userEdit = angular.copy($scope.userData);
-
-         $scope.showEdit = {showEditBox: false};
      }
 
  });
