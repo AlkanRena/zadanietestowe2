@@ -2,10 +2,8 @@
 
  app.controller('formController', function formController($scope){
      
-     
      $scope.showEdit = { showEditBox: false};
      $scope.showNew = true;
-     
      
      $scope.userData = [
          {
@@ -28,21 +26,23 @@
          }
      ];
 
-     var idCounter = 100000 + $scope.userData.length + 1;
+     var idCounter = 100000 + $scope.userData.length;
 
      $scope.userEdit = angular.copy($scope.userData);
 
      $scope.addData = function () {
-             idCounter = idCounter + 1;
-
+         idCounter = idCounter + 1;
          $scope.userData.push({
                  id: '' + idCounter,
                  name: $scope.userDataNew.name,
                  email: $scope.userDataNew.email,
                  showEditBox: false});
-
          $scope.userEdit = angular.copy($scope.userData);
+     };
 
+     $scope.clearData = function () {
+         $scope.userDataNew.name = [];
+         $scope.userDataNew.email = [];
      };
      
      $scope.deleteData = function(user) {

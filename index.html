@@ -40,7 +40,7 @@
 
                     <form class="FormInsideForm"
                           name="editUserForm"
-                          ng-submit="submitForm(editUserForm.$valid)"
+                          ng-submit="editData(); user.showEditBox = false"
                           ng-repeat="userEdition in userEdit | filter: {id: user.id}"
                         novalidate>
                         <div ng-class="{'has-error' : editUserForm.name.$invalid && !editUserForm.name.$pristine}">
@@ -48,7 +48,7 @@
                             <input
                                     type="text"
                                     name="name"
-                                    ng-model="editUserEdition.name"
+                                    ng-model="userEdition.name"
                                     ng-minlength="2"
                                     ng-class=""
                                     required>
@@ -58,7 +58,7 @@
                             <lable class="FormInsideLable">
                                 Email
                             </lable>
-                            <input type="email" name="email" ng-model="editUserEdition.email" required>
+                            <input type="email" name="email" ng-model="userEdition.email" required>
                             <p ng-show="editUserForm.email.$invalid && !editUserForm.email.$pristine"
                                class="help-block">Enter a valid email.</p>
                         </div>
@@ -83,13 +83,16 @@
 
         <div class="Form" ng-hide="showNew">
             <div class="FormInside">
-            <span class="FormInsideHeader">
+
+                <span class="FormInsideHeader">
                 Create new
-            </span>
-            <form class="FormInsideForm"
+                </span>
+
+                <form class="FormInsideForm"
                   name="userForm"
-                  ng-submit="addData()"
+                  ng-submit="addData(); showNew = !showNew; clearData()"
                   novalidate>
+
                 <div ng-class="{'has-error' : userForm.name.$invalid && !userForm.name.$pristine}">
                     <lable class="FormInsideLable">Name</lable>
                     <input
@@ -99,8 +102,9 @@
                             ng-minlength="2"
                             class="form-control"
                             required>
-                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Name is required.</p>
                 </div>
+
                 <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                     <lable class="FormInsideLable">
                         Email
@@ -113,10 +117,12 @@
                             required>
                     <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
                 </div>
+
                 <div class="FormInsideButton">
-                    <button class="FormInsideButtonSingle" ng-disabled="userForm.$invalid">Save</button>
-                    <button class="FormInsideButtonSingle" ng-click="showNew = !showNew">Cancel</button>
+                    <button type="submit" class="FormInsideButtonSingle" ng-disabled="userForm.$invalid">Save</button>
+                    <button type="reset" class="FormInsideButtonSingle" ng-click="showNew = !showNew">Cancel</button>
                 </div>
+
             </form>
 
             </div>
