@@ -3,7 +3,7 @@
  app.controller('formController', function formController($scope){
      
      $scope.showEdit = { showEditBox: false};
-     $scope.showNew = true;
+     $scope.showNew = false;
      
      $scope.userData = [
          {
@@ -25,7 +25,8 @@
              showEditBox: false
          }
      ];
-
+    
+     // Creating machine for id
      var idCounter = 100000 + $scope.userData.length;
 
      $scope.userEdit = angular.copy($scope.userData);

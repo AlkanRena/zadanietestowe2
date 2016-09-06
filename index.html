@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Zadanie Testowe</title>
-
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/buttonStyling.css">
     <link rel="stylesheet" href="style/newWindowsStyle.css">
+    <link rel="stylesheet" href="style/tableStyle.css">
 </head>
 <body>
 
@@ -26,18 +26,20 @@
                 <div class="singleRowEmail">{{user.email}}</div>
                 <div class="singleRowButton">
                     <div class="buttonmenu">
-                    <button class="MenuSingleButton" ng-click="user.showEditBox = true">Edit</button>
-                    <button class="MenuSingleButton" ng-click="deleteData(user)">Remove</button>
+                    <button
+                            class="MenuSingleButton"
+                            ng-click="user.showEditBox = true">Edit</button>
+                    <button
+                            class="MenuSingleButton"
+                            ng-click="deleteData(user)">Remove</button>
                     </div>
                 </div>
-
+<!--Hidden window for editing user-->
                 <div class="Form" data-ng-show="user.showEditBox">
                     <div class="FormInside">
-
                     <span class="FormInsideHeader">
                         Edit user
                     </span>
-
                     <form class="FormInsideForm"
                           name="editUserForm"
                           ng-submit="editData(); user.showEditBox = false"
@@ -52,13 +54,20 @@
                                     ng-minlength="2"
                                     ng-class=""
                                     required>
-                            <p ng-show="editUserForm.name.$invalid && !editUserForm.name.$pristine" class="help-block">You name is required.</p>
+                            <p ng-show="editUserForm.name.$invalid && !editUserForm.name.$pristine"
+                               class="help-block">You name is required.</p>
                         </div>
-                        <div class="form-group" ng-class="{ 'has-error' : editUserForm.email.$invalid && !editUserForm.email.$pristine }">
+                        <div
+                                class="form-group"
+                                ng-class="{ 'has-error' : editUserForm.email.$invalid && !editUserForm.email.$pristine }">
                             <lable class="FormInsideLable">
                                 Email
                             </lable>
-                            <input type="email" name="email" ng-model="userEdition.email" required>
+                            <input
+                                    type="email"
+                                    name="email"
+                                    ng-model="userEdition.email"
+                                    required>
                             <p ng-show="editUserForm.email.$invalid && !editUserForm.email.$pristine"
                                class="help-block">Enter a valid email.</p>
                         </div>
@@ -81,20 +90,20 @@
 
         <button class="CreateNewButton" ng-click="showNew = !showNew">Create new</button>
 
-        <div class="Form" ng-hide="showNew">
+<!--Hidden widndow for creating new user-->
+        <div class="Form" ng-show="showNew">
             <div class="FormInside">
-
                 <span class="FormInsideHeader">
                 Create new
                 </span>
-
                 <form class="FormInsideForm"
                   name="userForm"
                   ng-submit="addData(); showNew = !showNew; clearData()"
                   novalidate>
-
                 <div ng-class="{'has-error' : userForm.name.$invalid && !userForm.name.$pristine}">
-                    <lable class="FormInsideLable">Name</lable>
+                    <lable class="FormInsideLable">
+                        Name
+                    </lable>
                     <input
                             type="text"
                             name="name"
@@ -102,10 +111,14 @@
                             ng-minlength="2"
                             class="form-control"
                             required>
-                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Name is required.</p>
+                    <p
+                            ng-show="userForm.name.$invalid && !userForm.name.$pristine"
+                            class="help-block">Name is required.</p>
                 </div>
 
-                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                <div
+                        class="form-group"
+                        ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                     <lable class="FormInsideLable">
                         Email
                     </lable>
@@ -115,18 +128,24 @@
                             ng-model="userDataNew.email"
                             class="form-control"
                             required>
-                    <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                    <p
+                            ng-show="userForm.email.$invalid && !userForm.email.$pristine"
+                            class="help-block">Enter a valid email.</p>
                 </div>
-
                 <div class="FormInsideButton">
-                    <button type="submit" class="FormInsideButtonSingle" ng-disabled="userForm.$invalid">Save</button>
-                    <button type="reset" class="FormInsideButtonSingle" ng-click="showNew = !showNew">Cancel</button>
+                    <button
+                            type="submit"
+                            class="FormInsideButtonSingle"
+                            ng-disabled="userForm.$invalid">Save</button>
+                    <button
+                            type="reset"
+                            class="FormInsideButtonSingle"
+                            ng-click="showNew = !showNew">Cancel</button>
                 </div>
-
             </form>
-
             </div>
         </div>
+
     </div>
 </main>
 

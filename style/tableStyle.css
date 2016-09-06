@@ -1,0 +1,94 @@
+/*Table Style Sheet*/
+
+#table {
+    display: flex;
+    flex-flow: column;
+    border: 3px solid black;
+}
+
+#topTable {
+    display: flex;
+    flex-flow: row;
+    background-color: darkgrey;
+}
+    .topTableRowName {
+        width: 20vw;
+        padding: 1vh 1vw;
+    }
+
+    .topTableRowEmail {
+        width: 20vw;
+        border-left: 3px solid black;
+        border-right: 3px solid black;
+        padding: 1vh 1vw;
+    }
+
+    .topTableRowButton {
+        width: 5vw;
+        padding: 1vh 1vw;
+    }
+
+.table {
+    display: flex;
+    flex-flow: row;
+}
+    .singleRowName {
+        width: 20vw;
+        padding: 1vh 1vw;
+    }
+
+    .singleRowEmail {
+        width: 20vw;
+        padding: 1vh 1vw;
+        border-right: 3px solid black;
+        border-left: 3px solid black;
+    }
+
+    .singleRowButton {
+        width: 5vw;
+        padding: 1vh 1vw;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        background-image: url('../images/settings.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 20%;
+        cursor: pointer;
+    }
+        .buttonmenu {
+            display: none;
+            position: absolute;
+            top: 1vh;
+            left: 5vw;
+            z-index: 1;
+            border: 3px solid black;
+        }
+
+        .singleRowButton:hover > .buttonmenu {
+            display: flex;
+            flex-flow: column;
+            width: 5vw;
+            text-align: center;
+        }
+
+
+        .MenuSingleButton {
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .MenuSingleButton:hover {
+            background-color: lightgray;
+        }
+
+/*change background every line*/
+.table:nth-child(even) {
+    background-color: lightgray;
+}
+
+.table:nth-child(odd) {
+    background-color: white;
+}
+
