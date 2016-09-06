@@ -15,11 +15,16 @@ main > div {
     margin: 0 auto;
 }
 
+input {
+    width: 100%;
+
+    border: 3px solid black
+}
+
 #table {
     display: flex;
     flex-flow: column;
     border: 3px solid black;
-    max-height: 20vh
 }
 
 #topTable {
@@ -35,29 +40,29 @@ main > div {
 }
 
 .topTableRowName {
-    width: 15vw;
+    width: 20vw;
     padding: 1vh 1vw;
 }
 
 .topTableRowEmail {
-    width: 15vw;
+    width: 20vw;
     border-left: 3px solid black;
     border-right: 3px solid black;
     padding: 1vh 1vw;
 }
 
 .topTableRowButton {
-    width: 15vw;
+    width: 5vw;
     padding: 1vh 1vw;
 }
 
 .singleRowName {
-    width: 15vw;
+    width: 20vw;
     padding: 1vh 1vw;
 }
 
 .singleRowEmail {
-    width: 15vw;
+    width: 20vw;
     padding: 1vh 1vw;
     border-right: 3px solid black;
     border-left: 3px solid black;
@@ -69,4 +74,16 @@ main > div {
 
 .table:nth-child(odd) {
     background-color: white;
+}
+
+.ng-valid {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.ng-invalid {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.ng-disabled {
+    background-color: darkgrey;
 }

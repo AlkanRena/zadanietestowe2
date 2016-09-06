@@ -1,7 +1,7 @@
 /* Settings for options in table */
 
 .singleRowButton {
-    width: 15vw;
+    width: 5vw;
     padding: 1vh 1vw;
     position: relative;
     display: flex;
@@ -9,7 +9,9 @@
     background-image: url('../images/settings.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 7%;
+    background-size: 20%;
+
+    cursor: pointer;
 }
 
 .buttonmenu {
@@ -18,6 +20,17 @@
     top: 1vh;
     left: 5vw;
     z-index: 1;
+    border: 3px solid black;
+}
+
+.MenuSingleButton {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.MenuSingleButton:hover {
+    background-color: lightgray;
 }
 
 .singleRowButton:hover > .buttonmenu {
@@ -31,4 +44,15 @@
 
 .CreateNewButton {
     margin: 2vh 0;
+
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    box-shadow: 5px 5px 0 black;
+
+    cursor: pointer;
+}
+
+.CreateNewButton:hover{
+    background-color: lightgray;
 }
