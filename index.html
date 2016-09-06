@@ -6,55 +6,120 @@
 
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/buttonStyling.css">
+    <link rel="stylesheet" href="style/newWindowsStyle.css">
 </head>
 <body>
 
 <main>
     <div ng-controller="formController">
         <div id="table">
+
             <div id="topTable">
                 <div class="topTableRowName">Name</div>
                 <div class="topTableRowEmail">Email</div>
                 <div class="topTableRowButton">Actions</div>
             </div>
+
             <div class="table" ng-repeat="user in userData">
                 <div class="singleRowName">{{user.name}}</div>
                 <div class="singleRowEmail">{{user.email}}</div>
-                <div class="singleRowButton"><button ng-click="user.showEditBox = true">Edit</button><button ng-click="deleteData(user)">Remove</button></div>
-                <div data-ng-show="user.showEditBox">
-                    <span>
+                <div class="singleRowButton">
+                    <div class="buttonmenu">
+                    <button class="MenuSingleButton" ng-click="user.showEditBox = true">Edit</button>
+                    <button class="MenuSingleButton" ng-click="deleteData(user)">Remove</button>
+                    </div>
+                </div>
+
+                <div class="Form" data-ng-show="user.showEditBox">
+                    <div class="FormInside">
+
+                    <span class="FormInsideHeader">
                         Edit user
                     </span>
-                    <form ng-repeat="userEdition in userEdit | filter: {id: user.id, name: user.name}">
-                        <lable>
-                            Name
-                            <input type="text" name="name" ng-model="userEdition.name">
-                        </lable>
-                        <lable>
-                            Email
-                            <input type="email" name="email" ng-model="userEdition.email">
-                        </lable>
-                        <button ng-click="editData()">Save</button><button ng-click="user.showEditBox = false; cancel()">Cancel</button>
+
+                    <form class="FormInsideForm"
+                          name="editUserForm"
+                          ng-submit="submitForm(editUserForm.$valid)"
+                          ng-repeat="userEdition in userEdit | filter: {id: user.id}"
+                        novalidate>
+                        <div ng-class="{'has-error' : editUserForm.name.$invalid && !editUserForm.name.$pristine}">
+                            <lable class="FormInsideLable">Name</lable>
+                            <input
+                                    type="text"
+                                    name="name"
+                                    ng-model="editUserEdition.name"
+                                    ng-minlength="2"
+                                    ng-class=""
+                                    required>
+                            <p ng-show="editUserForm.name.$invalid && !editUserForm.name.$pristine" class="help-block">You name is required.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : editUserForm.email.$invalid && !editUserForm.email.$pristine }">
+                            <lable class="FormInsideLable">
+                                Email
+                            </lable>
+                            <input type="email" name="email" ng-model="editUserEdition.email" required>
+                            <p ng-show="editUserForm.email.$invalid && !editUserForm.email.$pristine"
+                               class="help-block">Enter a valid email.</p>
+                        </div>
+                        <div class="FormInsideButton">
+                            <button
+                                    type="submit"
+                                    class="FormInsideButtonSingle"
+                                    ng-disabled="editUserForm.$invalid">Save</button>
+                            <button
+                                    type="reset"
+                                    class="FormInsideButtonSingle"
+                                    ng-click="user.showEditBox = false; cancel()">Cancel</button>
+                        </div>
                     </form>
+                    </div>
                 </div>
+
             </div>
         </div>
-        <button ng-click="showNew = !showNew">Create new</button>
-        <div ng-hide="showNew">
-            <span>
+
+        <button class="CreateNewButton" ng-click="showNew = !showNew">Create new</button>
+
+        <div class="Form" ng-hide="showNew">
+            <div class="FormInside">
+            <span class="FormInsideHeader">
                 Create new
             </span>
-            <form>
-                <lable>
-                    Name
-                    <input type="text" name="name" ng-model="userDataName">
-                </lable>
-                <lable>
-                    Email
-                    <input type="email" name="email" ng-model="userDataEmail">
-                </lable>
-                <button ng-click="addData()">Save</button><button ng-click="showNew = !showNew">Cancel</button>
+            <form class="FormInsideForm"
+                  name="userForm"
+                  ng-submit="addData()"
+                  novalidate>
+                <div ng-class="{'has-error' : userForm.name.$invalid && !userForm.name.$pristine}">
+                    <lable class="FormInsideLable">Name</lable>
+                    <input
+                            type="text"
+                            name="name"
+                            ng-model="userDataNew.name"
+                            ng-minlength="2"
+                            class="form-control"
+                            required>
+                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                    <lable class="FormInsideLable">
+                        Email
+                    </lable>
+                    <input
+                            type="email"
+                            name="email"
+                            ng-model="userDataNew.email"
+                            class="form-control"
+                            required>
+                    <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                </div>
+                <div class="FormInsideButton">
+                    <button class="FormInsideButtonSingle" ng-disabled="userForm.$invalid">Save</button>
+                    <button class="FormInsideButtonSingle" ng-click="showNew = !showNew">Cancel</button>
+                </div>
             </form>
+
+            </div>
         </div>
     </div>
 </main>
