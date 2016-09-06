@@ -98,7 +98,7 @@
                 </span>
                 <form class="FormInsideForm"
                   name="userForm"
-                  ng-submit="addData(); showNew = !showNew; clearData()"
+                  ng-submit="addData(); showNew = !showNew; clearDataInput()"
                   novalidate>
                 <div ng-class="{'has-error' : userForm.name.$invalid && !userForm.name.$pristine}">
                     <lable class="FormInsideLable">
@@ -150,6 +150,6 @@
 </main>
 
 <script type="text/javascript" src="script/angular.min.js"></script>
-<script type="text/javascript" src="script/app.js"></script>
+<script type="text/javascript" src="script/form.controller.js"></script>
 </body>
 </html>
