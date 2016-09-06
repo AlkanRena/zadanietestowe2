@@ -1,13 +1,10 @@
 .Form {
     position: fixed;
-
     top: 0;
     left: 0;
-
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.5);
-
     z-index: 1;
 }
 
@@ -46,20 +43,25 @@
     display: flex;
     flex-flow: row;
     justify-content: flex-end;
-
 }
 
 .FormInsideButtonSingle {
     margin: 2vh 0 2vh 2vw;
-
     background-color: white;
     color: black;
     border: 3px solid black;
     box-shadow: 5px 5px 0 black;
-
     cursor: pointer;
 }
 
 .FormInsideButtonSingle:hover {
     background-color: lightgray;
+}
+
+.ng-valid {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.ng-invalid {
+    background-color: rgba(255, 0, 0, 0.1);
 }

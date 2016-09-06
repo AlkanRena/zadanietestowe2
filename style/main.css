@@ -1,6 +1,5 @@
 main {
     display: flex;
-    height: 100%;
     width: 100vw;
 
     font-family: "Courier New", "Lucida Console";
@@ -11,79 +10,11 @@ button {
 }
 
 main > div {
-    padding-top: 20vh;
+    padding-top: 10vh;
     margin: 0 auto;
 }
 
 input {
     width: 100%;
-
     border: 3px solid black
-}
-
-#table {
-    display: flex;
-    flex-flow: column;
-    border: 3px solid black;
-}
-
-#topTable {
-    display: flex;
-    flex-flow: row;
-
-    background-color: darkgrey;
-}
-
-.table {
-    display: flex;
-    flex-flow: row;
-}
-
-.topTableRowName {
-    width: 20vw;
-    padding: 1vh 1vw;
-}
-
-.topTableRowEmail {
-    width: 20vw;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-    padding: 1vh 1vw;
-}
-
-.topTableRowButton {
-    width: 5vw;
-    padding: 1vh 1vw;
-}
-
-.singleRowName {
-    width: 20vw;
-    padding: 1vh 1vw;
-}
-
-.singleRowEmail {
-    width: 20vw;
-    padding: 1vh 1vw;
-    border-right: 3px solid black;
-    border-left: 3px solid black;
-}
-
-.table:nth-child(even) {
-    background-color: lightgray;
-}
-
-.table:nth-child(odd) {
-    background-color: white;
-}
-
-.ng-valid {
-    background-color: rgba(0, 255, 0, 0.1);
-}
-
-.ng-invalid {
-    background-color: rgba(255, 0, 0, 0.1);
-}
-
-.ng-disabled {
-    background-color: darkgrey;
 }
