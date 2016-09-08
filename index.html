@@ -35,7 +35,7 @@
                     </div>
                 </div>
 <!--Hidden window for editing user-->
-                <div class="Form" data-ng-show="user.showEditBox">
+                <div id="EditForm" class="Form" data-ng-show="user.showEditBox">
                     <div class="FormInside">
                     <span class="FormInsideHeader">
                         Edit user
@@ -88,17 +88,17 @@
             </div>
         </div>
 
-        <button class="CreateNewButton" ng-click="showNew = !showNew">Create new</button>
+        <button class="CreateNewButton" ng-click="showNew = true">Create new</button>
 
 <!--Hidden widndow for creating new user-->
-        <div class="Form" ng-show="showNew">
+        <div id="AddForm" class="Form" ng-show="showNew">
             <div class="FormInside">
                 <span class="FormInsideHeader">
                 Create new
                 </span>
                 <form class="FormInsideForm"
                   name="userForm"
-                  ng-submit="addData(); showNew = !showNew; clearDataInput()"
+                  ng-submit="addData(); showNew = false; clearDataInput()"
                   novalidate>
                 <div ng-class="{'has-error' : userForm.name.$invalid && !userForm.name.$pristine}">
                     <lable class="FormInsideLable">
@@ -140,7 +140,7 @@
                     <button
                             type="reset"
                             class="FormInsideButtonSingle"
-                            ng-click="showNew = !showNew">Cancel</button>
+                            ng-click="showNew = false">Cancel</button>
                 </div>
             </form>
             </div>
@@ -151,5 +151,6 @@
 
 <script type="text/javascript" src="script/angular.min.js"></script>
 <script type="text/javascript" src="script/form.controller.js"></script>
+
 </body>
 </html>
