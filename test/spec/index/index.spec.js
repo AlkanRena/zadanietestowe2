@@ -1,5 +1,6 @@
 describe("check if visible or not - Index side of page", function () {
 
+        browser.get('http://localhost:3333');
 
     var elementNew = browser.findElement(by.css('#AddForm'));
     var elementEdit = browser.findElement(by.css('#EditForm'));
@@ -8,6 +9,10 @@ describe("check if visible or not - Index side of page", function () {
     var buttonMenu = browser.findElement(by.css('.singleRowButton'));
     var editOldButton = browser.findElement(by.buttonText("Edit"));
     var editOldCancelInsideButton = browser.findElement(by.buttonText("Cancel Edit"));
+
+    afterEach(function () {
+        browser.sleep(50);
+    });
 
     it('should be hidden 1', function () {
 
