@@ -35,7 +35,7 @@
                     </div>
                 </div>
 <!--Hidden window for editing user-->
-                <div class="Form" data-ng-show="user.showEditBox">
+                <div id="EditForm" class="Form" data-ng-show="user.showEditBox">
                     <div class="FormInside">
                     <span class="FormInsideHeader">
                         Edit user
@@ -55,7 +55,8 @@
                                     ng-class=""
                                     required>
                             <p ng-show="editUserForm.name.$invalid && !editUserForm.name.$pristine"
-                               class="help-block">You name is required.</p>
+                               id="wrongNameEditForm"
+                               class="help-block">Name required or too short name.</p>
                         </div>
                         <div
                                 class="form-group"
@@ -69,6 +70,7 @@
                                     ng-model="userEdition.email"
                                     required>
                             <p ng-show="editUserForm.email.$invalid && !editUserForm.email.$pristine"
+                               id="wrongEmailEditForm"
                                class="help-block">Enter a valid email.</p>
                         </div>
                         <div class="FormInsideButton">
@@ -79,7 +81,7 @@
                             <button
                                     type="reset"
                                     class="FormInsideButtonSingle"
-                                    ng-click="user.showEditBox = false; cancel()">Cancel</button>
+                                    ng-click="user.showEditBox = false; cancel()">Cancel Edit</button>
                         </div>
                     </form>
                     </div>
@@ -88,17 +90,17 @@
             </div>
         </div>
 
-        <button class="CreateNewButton" ng-click="showNew = !showNew">Create new</button>
+        <button class="CreateNewButton" ng-click="showNew = true">Create New</button>
 
 <!--Hidden widndow for creating new user-->
-        <div class="Form" ng-show="showNew">
+        <div id="AddForm" class="Form" ng-show="showNew">
             <div class="FormInside">
                 <span class="FormInsideHeader">
                 Create new
                 </span>
                 <form class="FormInsideForm"
                   name="userForm"
-                  ng-submit="addData(); showNew = !showNew; clearDataInput()"
+                  ng-submit="addData(); showNew = false; clearDataInput()"
                   novalidate>
                 <div ng-class="{'has-error' : userForm.name.$invalid && !userForm.name.$pristine}">
                     <lable class="FormInsideLable">
@@ -113,7 +115,8 @@
                             required>
                     <p
                             ng-show="userForm.name.$invalid && !userForm.name.$pristine"
-                            class="help-block">Name is required.</p>
+                            id="wrongNameNewForm"
+                            class="help-block">Name required or too short name.</p>
                 </div>
 
                 <div
@@ -130,17 +133,18 @@
                             required>
                     <p
                             ng-show="userForm.email.$invalid && !userForm.email.$pristine"
+                            id="wrongEmailNewForm"
                             class="help-block">Enter a valid email.</p>
                 </div>
                 <div class="FormInsideButton">
                     <button
                             type="submit"
                             class="FormInsideButtonSingle"
-                            ng-disabled="userForm.$invalid">Save</button>
+                            ng-disabled="userForm.$invalid">Save New</button>
                     <button
                             type="reset"
                             class="FormInsideButtonSingle"
-                            ng-click="showNew = !showNew">Cancel</button>
+                            ng-click="showNew = false">Cancel Adding</button>
                 </div>
             </form>
             </div>
@@ -151,5 +155,6 @@
 
 <script type="text/javascript" src="script/angular.min.js"></script>
 <script type="text/javascript" src="script/form.controller.js"></script>
+
 </body>
 </html>

@@ -1,9 +1,7 @@
  angular.module('form', [])
         .controller('formController', function formController($scope){
 
-            var vm = this;
-             vm.showEdit = { showEditBox: false};
-             vm.showNew = false;
+
 
              $scope.userData = [
                  {
@@ -25,6 +23,9 @@
                      showEditBox: false
                  }
              ];
+
+            $scope.showNew = false;
+
 
              // Creating machine for id
              var idCounter = 100000 + $scope.userData.length;
