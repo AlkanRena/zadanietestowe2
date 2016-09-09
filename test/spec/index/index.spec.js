@@ -1,11 +1,9 @@
 describe("check if visible or not - Index side of page", function () {
 
 
-    browser.get('http://localhost:3333');
-    
     var elementNew = browser.findElement(by.css('#AddForm'));
     var elementEdit = browser.findElement(by.css('#EditForm'));
-    var createNewButton = browser.findElement(by.buttonText("Create new"));
+    var createNewButton = browser.findElement(by.buttonText("Create New"));
     var cancelNewButton = browser.findElement(by.buttonText("Cancel Adding"));
     var buttonMenu = browser.findElement(by.css('.singleRowButton'));
     var editOldButton = browser.findElement(by.buttonText("Edit"));
@@ -44,7 +42,7 @@ describe("check if visible or not - Index side of page", function () {
             }
         });
     });
-    
+
     it('should be hidden Adding Window', function () {
         cancelNewButton.click();
         console.log('I clicked second time');
@@ -56,7 +54,7 @@ describe("check if visible or not - Index side of page", function () {
             }
         });
     });
-    
+
     it('should be visible if hover on', function () {
         browser.actions().mouseMove(buttonMenu).perform().then(
             function () {
@@ -71,7 +69,7 @@ describe("check if visible or not - Index side of page", function () {
             }
         );
     });
-    
+
     it('should open edit window', function () {
         editOldButton.click();
         elementEdit.isDisplayed().then(function (result6) {
