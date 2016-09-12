@@ -24,14 +24,14 @@
             <div class="table" ng-repeat="user in userData">
                 <div class="singleRowName">{{user.name}}</div>
                 <div class="singleRowEmail">{{user.email}}</div>
-                <div class="singleRowButton">
-                    <div class="buttonmenu">
+                <div id="singleRowButton_{{user.id}}" class="singleRowButton">
+                    <div id="buttonMenu_{{user.id}}" class="buttonmenu">
                     <button
-                            id="Edit_{{user.id}}"
+                            id="edit_{{user.id}}"
                             class="MenuSingleButton"
                             ng-click="user.showEditBox = true">Edit</button>
                     <button
-                            id="Delate_{{user.id}}"
+                            id="delate_{{user.id}}"
                             class="MenuSingleButton"
                             ng-click="deleteData(user)">Remove</button>
                     </div>
@@ -77,10 +77,12 @@
                         </div>
                         <div class="FormInsideButton">
                             <button
+                                    id="Save_{{user.id}}"
                                     type="submit"
                                     class="FormInsideButtonSingle"
                                     ng-disabled="editUserForm.$invalid">Save</button>
                             <button
+                                    id="Cancel_{{user.id}}"
                                     type="reset"
                                     class="FormInsideButtonSingle"
                                     ng-click="user.showEditBox = false; cancel()">Cancel Edit</button>

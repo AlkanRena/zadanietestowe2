@@ -1,5 +1,6 @@
 exports.config = {
     framework:'jasmine',
+    chromeOnly: true,
     capabilities: {
        shardTestFiles: false,
         browserName: 'chrome'
