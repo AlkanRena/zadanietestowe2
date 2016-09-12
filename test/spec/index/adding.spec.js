@@ -3,8 +3,7 @@ describe("addingTool-protractor", function() {
     var inputName = element(by.model('userDataNew.name'));
     var inputEmail = element(by.model('userDataNew.email'));
 
-    // var errorForEditName = element(by.css('#wrongNameEditForm'));
-    // var errorForEditEmail = element(by.css('#wrongEmailEditForm'));
+
 
     var errorForNewName = element(by.css('#wrongNameNewForm'));
     var errorForNewEmail = element(by.css('#wrongEmailNewForm'));
@@ -171,7 +170,6 @@ describe("addingTool-protractor", function() {
         cancelNewButton.click();
         console.log('second test done');
         browser.sleep(2000);
-
     })
 
 });
