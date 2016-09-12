@@ -50,6 +50,7 @@
                         <div ng-class="{'has-error' : editUserForm.name.$invalid && !editUserForm.name.$pristine}">
                             <lable class="FormInsideLable">Name</lable>
                             <input
+                                    id="userName_{{user.id}}"
                                     type="text"
                                     name="name"
                                     ng-model="userEdition.name"
@@ -67,6 +68,7 @@
                                 Email
                             </lable>
                             <input
+                                    id="userEmail_{{user.id}}"
                                     type="email"
                                     name="email"
                                     ng-model="userEdition.email"

@@ -169,7 +169,7 @@ describe("addingTool-protractor", function() {
     it('close form', function () {
         cancelNewButton.click();
         console.log('second test done');
-        browser.sleep(2000);
+        browser.sleep(500);
     })
 
 });
