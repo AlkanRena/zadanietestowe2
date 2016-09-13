@@ -73,7 +73,7 @@ describe('Lets be GRRM',function () {
     //Lets check if Arya and John still there
 
     var aryaUserNameSeen = browser.element(by.css('#userName_100002'));
-    var jonUserNameSeen = browser.element(by.css('userName_100005'));
+    var jonUserNameSeen = browser.element(by.css('#userName_100005'));
 
     it('Arya should be here', function () {
         aryaUserNameSeen.isDisplayed().then(function (resultSeenArya) {

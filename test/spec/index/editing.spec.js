@@ -1,7 +1,7 @@
 describe("Editing-Tool-protractor", function(){
 
     afterEach(function () {
-        browser.sleep(500);
+        browser.sleep(150);
     });
 
     it('start new test - Edit', function () {
@@ -141,29 +141,35 @@ describe("Editing-Tool-protractor", function(){
 
     it('check if John Snow is Jon Snow', function () {
         editUserNameSnow.clear();
-        browser.sleep(500);
         editUserNameSnow.sendKeys('Are you Jon Snow?');
-        editUserNameSnow.clear();
         browser.sleep(500);
+        editUserNameSnow.clear();
         editUserNameSnow.sendKeys('Yes, I am Jon Snow');
+        browser.sleep(500);
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('Maybe you are Jon Targaryen ?');
+        browser.sleep(500);
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('It is not possible!');
+        browser.sleep(500);
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('Its true your mother is Lyan Stark');
+        browser.sleep(500);
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('So I am Stark and Targaryen? Is it true tree eyed reven');
+        browser.sleep(500);
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('Yes, Jon you are Stark and Targaryen');
+        browser.sleep(500);
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('So from that moment I will be called');
+        browser.sleep(500);
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('Jon Stark-Targaryen');
