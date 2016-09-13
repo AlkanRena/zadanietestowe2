@@ -24,12 +24,14 @@
             <div class="table" ng-repeat="user in userData">
                 <div class="singleRowName">{{user.name}}</div>
                 <div class="singleRowEmail">{{user.email}}</div>
-                <div class="singleRowButton">
-                    <div class="buttonmenu">
+                <div id="singleRowButton_{{user.id}}" class="singleRowButton">
+                    <div id="buttonMenu_{{user.id}}" class="buttonmenu">
                     <button
+                            id="edit_{{user.id}}"
                             class="MenuSingleButton"
                             ng-click="user.showEditBox = true">Edit</button>
                     <button
+                            id="delate_{{user.id}}"
                             class="MenuSingleButton"
                             ng-click="deleteData(user)">Remove</button>
                     </div>
@@ -40,7 +42,9 @@
                     <span class="FormInsideHeader">
                         Edit user
                     </span>
-                    <form class="FormInsideForm"
+                    <form
+                          id="EditForm_{{user.id}}"
+                          class="FormInsideForm"
                           name="editUserForm"
                           ng-submit="editData(); user.showEditBox = false"
                           ng-repeat="userEdition in userEdit | filter: {id: user.id}"
@@ -48,6 +52,7 @@
                         <div ng-class="{'has-error' : editUserForm.name.$invalid && !editUserForm.name.$pristine}">
                             <lable class="FormInsideLable">Name</lable>
                             <input
+                                    id="userName_{{user.id}}"
                                     type="text"
                                     name="name"
                                     ng-model="userEdition.name"
@@ -65,6 +70,7 @@
                                 Email
                             </lable>
                             <input
+                                    id="userEmail_{{user.id}}"
                                     type="email"
                                     name="email"
                                     ng-model="userEdition.email"
@@ -75,10 +81,12 @@
                         </div>
                         <div class="FormInsideButton">
                             <button
+                                    id="Save_{{user.id}}"
                                     type="submit"
                                     class="FormInsideButtonSingle"
                                     ng-disabled="editUserForm.$invalid">Save</button>
                             <button
+                                    id="Cancel_{{user.id}}"
                                     type="reset"
                                     class="FormInsideButtonSingle"
                                     ng-click="user.showEditBox = false; cancel()">Cancel Edit</button>

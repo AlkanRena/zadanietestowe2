@@ -5,19 +5,19 @@
 
              $scope.userData = [
                  {
-                     id: '1000001',
+                     id: '100001',
                      name: 'Neddard Stark',
                      email: 'ned@stark.got',
                      showEditBox: false
                  },
                  {
-                     id: '1000002',
+                     id: '100002',
                      name: 'Arya Stark',
                      email: 'arya@stark.com',
                      showEditBox: false
                  },
                  {
-                     id: '1000003',
+                     id: '100003',
                      name: 'Stannis Lannister',
                      email: 'stannis@lannister.got',
                      showEditBox: false
