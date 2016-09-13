@@ -12,19 +12,19 @@
     background-color: darkgrey;
 }
     .topTableRowName {
-        width: 20vw;
+        width: 25vw;
         padding: 1vh 1vw;
     }
 
     .topTableRowEmail {
-        width: 20vw;
+        width: 25vw;
         border-left: 3px solid black;
         border-right: 3px solid black;
         padding: 1vh 1vw;
     }
 
     .topTableRowButton {
-        width: 5vw;
+        width: 10vw;
         padding: 1vh 1vw;
     }
 
@@ -33,19 +33,19 @@
     flex-flow: row;
 }
     .singleRowName {
-        width: 20vw;
+        width: 25vw;
         padding: 1vh 1vw;
     }
 
     .singleRowEmail {
-        width: 20vw;
+        width: 25vw;
         padding: 1vh 1vw;
         border-right: 3px solid black;
         border-left: 3px solid black;
     }
 
     .singleRowButton {
-        width: 5vw;
+        width: 10vw;
         padding: 1vh 1vw;
         position: relative;
         display: flex;
@@ -53,7 +53,7 @@
         background-image: url('../images/settings.jpg');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 20%;
+        background-size: 15%;
         cursor: pointer;
     }
         .buttonmenu {
