@@ -42,7 +42,9 @@
                     <span class="FormInsideHeader">
                         Edit user
                     </span>
-                    <form class="FormInsideForm"
+                    <form
+                          id="EditForm_{{user.id}}"
+                          class="FormInsideForm"
                           name="editUserForm"
                           ng-submit="editData(); user.showEditBox = false"
                           ng-repeat="userEdition in userEdit | filter: {id: user.id}"
