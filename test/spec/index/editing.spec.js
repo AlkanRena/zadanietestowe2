@@ -139,16 +139,16 @@ describe("Editing-Tool-protractor", function(){
     //Caution Spoiler Ahead for Serial and probably for the book
     //All below test are for testing how angular is working for changing name frequently
 
-    it('check if John Snow is John Snow', function () {
+    it('check if John Snow is Jon Snow', function () {
         editUserNameSnow.clear();
         browser.sleep(500);
-        editUserNameSnow.sendKeys('Are you John Snow?');
+        editUserNameSnow.sendKeys('Are you Jon Snow?');
         editUserNameSnow.clear();
         browser.sleep(500);
-        editUserNameSnow.sendKeys('Yes, I am John Snow');
+        editUserNameSnow.sendKeys('Yes, I am Jon Snow');
         editUserNameSnow.clear();
         browser.sleep(500);
-        editUserNameSnow.sendKeys('Maybe you are John Targaryen ?');
+        editUserNameSnow.sendKeys('Maybe you are Jon Targaryen ?');
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('It is not possible!');
@@ -160,19 +160,19 @@ describe("Editing-Tool-protractor", function(){
         editUserNameSnow.sendKeys('So I am Stark and Targaryen? Is it true tree eyed reven');
         editUserNameSnow.clear();
         browser.sleep(500);
-        editUserNameSnow.sendKeys('Yes, John you are Stark and Targaryen');
+        editUserNameSnow.sendKeys('Yes, Jon you are Stark and Targaryen');
         editUserNameSnow.clear();
         browser.sleep(500);
         editUserNameSnow.sendKeys('So from that moment I will be called');
         editUserNameSnow.clear();
         browser.sleep(500);
-        editUserNameSnow.sendKeys('John Stark-Targaryen');
+        editUserNameSnow.sendKeys('Jon Stark-Targaryen');
     });
 
     it('Lets check email and change it', function () {
         editUserEmailSnow.clear();
-        editUserEmailSnow.sendKeys('John');
-        expect(editUserEmailSnow.getAttribute('value')).toBe('John');
+        editUserEmailSnow.sendKeys('Jon');
+        expect(editUserEmailSnow.getAttribute('value')).toBe('Jon');
         saveUserSnow.click();
         editWindowSnow.isDisplayed().then(function (windowResultSnow){
             if(windowResultSnow){
@@ -184,9 +184,9 @@ describe("Editing-Tool-protractor", function(){
     });
 
     it('Lets fix email', function () {
-        expect(editUserEmailSnow.getAttribute('value')).toBe('John');
+        expect(editUserEmailSnow.getAttribute('value')).toBe('Jon');
         editUserEmailSnow.sendKeys('@stark-targaryen.got');
-        expect(editUserEmailSnow.getAttribute('value')).toBe('John@stark-targaryen.got')
+        expect(editUserEmailSnow.getAttribute('value')).toBe('Jon@stark-targaryen.got')
     });
 
     it('Lets send him', function(){
